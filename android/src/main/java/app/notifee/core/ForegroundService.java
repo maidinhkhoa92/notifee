@@ -20,7 +20,6 @@ package app.notifee.core;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
-import android.content.pm.ServiceInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -92,12 +91,7 @@ public class ForegroundService extends Service {
 
         if (mCurrentNotificationId == null) {
           mCurrentNotificationId = notificationModel.getId();
-
-          if (Build.VERSION.SDK_INT >= 34) {
-            startForeground(hashCode, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
-          } else {
-            startForeground(hashCode, notification);
-          }
+          startForeground(hashCode, notification);
 
           // On headless task complete
           final MethodCallResult<Void> methodCallResult =
