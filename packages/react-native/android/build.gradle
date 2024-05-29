@@ -113,7 +113,7 @@ ReactNative.module.applyReactNativeDependency("api")
 rootProject.allprojects {
   repositories {
     maven {
-      url "$notifeeDir/android/libs"
+      url "$rootDir/../node_modules/evizi-notifee/android/libs"
     }
   }
 }
